@@ -1,2 +1,5 @@
 # microAES128
-AES encryption in 813 AVR bytes and 12k cycles and minimal RAM usage
+AES encryption tested on AVR microcontollers
+ - Uses 813 AVR flash bytes
+ - Executes in 12k CPU cycles
+ - Uses minimal RAM
