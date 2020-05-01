@@ -120,13 +120,15 @@ static void MixColumns(uint8_t* state)
 	}
 }
 
-// Encrypt plain text state[16] to encrypted state[16], key[16] gets destroyed
+// Encrypt plain text state[16] to encrypted state[16], key[16] is unchanged
 void aes_encrypt(uint8_t* key, uint8_t* state)
 {
   uint8_t round = 0;
+  uint8_t roundkey[];
+  memcpy(roundkey, key, 16);
 
   // Add the First round key to the state before starting the rounds.
-  AddRoundKey(0, state, key);
+  AddRoundKey(0, state, roundkey);
 
   // There will be Nr rounds.
   // The first Nr-1 rounds are identical.
@@ -144,8 +146,8 @@ void aes_encrypt(uint8_t* key, uint8_t* state)
       break;
     }
     MixColumns(state);
-    AddRoundKey(round, state, key);
+    AddRoundKey(round, state, roundkey);
   }
   // Add round key to last round
-  AddRoundKey(Nr, state, key);
+  AddRoundKey(Nr, state, roundkey);
 }
