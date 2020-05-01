@@ -16,6 +16,8 @@ Host: c = __aes_decrypt__(plaintext); send(c); -> Node: receive(c); plaintext = 
 |-O3|2119|7.2|
 |-Os|703|10.0|
 
+This is a factor 2-3 slower than pure AVR assembly implementations, but C-code can be ported more easily to other microcontrollers.
+
 ## CMAC
 Implements a length prepedend CBC-MAC.
 
