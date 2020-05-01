@@ -6,11 +6,11 @@ To keep code size to a minimum, only the encryption algorithm is implemented, fo
 But even with only aes_encrypt(), two way encrypted communication is still possible:
 
 #### Node to Host  
-Node: c = aes_encrypt(plaintext); send(c); 
+Node: c = aes_encrypt(plaintext); send(c);  
 Host: c = receive(); plaintext = aes_decrypt(c);  
 
 #### Host to Node  
-Host: c = __aes_decrypt__(plaintext); send(c); 
+Host: c = __aes_decrypt__(plaintext); send(c);  
 Node: c = receive(); plaintext = __aes_encrypt__(c);
 
 ## Benchmarks aes_encrypt()
