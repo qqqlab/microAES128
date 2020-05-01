@@ -124,7 +124,7 @@ static void MixColumns(uint8_t* state)
 void aes_encrypt(uint8_t* key, uint8_t* state)
 {
   uint8_t round = 0;
-  uint8_t roundkey[];
+  uint8_t roundkey[16];
   memcpy(roundkey, key, 16);
 
   // Add the First round key to the state before starting the rounds.
