@@ -100,20 +100,10 @@ static void ShiftRows(uint8_t* state)
   state[1*4+3] = temp;
 }
 
-// multiply by 2 in the galois field
-static uint8_t xtime(unsigned char value)
+static uint8_t xtime(uint8_t value)
 {
-	signed char temp;
-	// cast to signed value
-	temp = (signed char) value;
-	// if MSB is 1, then this will signed extend and fill the temp variable with 1's
-	temp = temp >> 7;
-	// AND with the reduction variable
-	temp = temp & 0x1b;
-	// finally shift and reduce the value
-	return ((value << 1)^temp);
+	return ( (value << 1) ^ (( - (value >> 7)) & 0x1b) );
 }
-
 
 // MixColumns function mixes the columns of the state matrix
 static void MixColumns(uint8_t* state)
