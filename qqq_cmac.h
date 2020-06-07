@@ -8,6 +8,6 @@ One solution is to include the length of the message in the first block;[3] in f
 */
 
 // Compute length prepended CBC-CMAC of msg, result is in cmac[16]. Keeps key and msg intact.
-void cmac(uint8_t* key, uint8_t* msg, uint16_t msglen, uint8_t* cmac);
+void cmac(uint8_t* key, uint8_t* msg, uint32_t msglen, uint8_t* cmac);
 
 #endif // _QQQ_CMAC_H_
